@@ -43,7 +43,17 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\..\..\SharedAssembly\NHibernate\FluentNHibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\..\SharedAssembly\NHibernate\Required_Bins\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\..\SharedAssembly\NHibernate\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -61,6 +71,10 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\BranchDetailMap.vb" />
+    <Compile Include="Mappings\BranchMap.vb" />
+    <Compile Include="Entities\Branch.vb" />
+    <Compile Include="Entities\BranchDetail.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,7 +111,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mapping\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
