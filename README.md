@@ -1,7 +1,7 @@
-KOpenPos
+KOpenPointOfSales
 =================
 
-KOpenPos adalah aplikasi Penjualan Barang dan Jasa Untuk UKM
+KOpenPointOfSales adalah aplikasi Penjualan Barang dan Jasa Untuk UKM
 
 Lisensi
 =======
