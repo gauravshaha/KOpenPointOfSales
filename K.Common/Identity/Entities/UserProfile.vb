@@ -2,7 +2,7 @@
 
 Namespace Identity.Entities
 
-    Friend Class UserProfile
+    Public Class UserProfile
         Public Sub New()
             MyBase.New()
             UserDetails = New List(Of UserDetails)()

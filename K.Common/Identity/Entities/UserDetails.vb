@@ -2,7 +2,7 @@
 
 Namespace Identity.Entities
 
-    Friend Class UserDetails
+    Public Class UserDetails
         Public Overridable Property Id() As Guid
         Public Overridable Property UserProfile() As UserProfile
         <Required()> _

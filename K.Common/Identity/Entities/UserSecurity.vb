@@ -2,7 +2,7 @@
 
 Namespace Identity.Entities
 
-    Friend Class UserSecurity
+    Public Class UserSecurity
         Public Sub New()
             MyBase.New()
             UserProfile = New List(Of UserProfile)()

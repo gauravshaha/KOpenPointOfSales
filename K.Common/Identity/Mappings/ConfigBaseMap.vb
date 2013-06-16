@@ -4,7 +4,7 @@ Imports NHibernate.Mapping.ByCode
 
 Namespace Identity.Mappings
 
-    Friend Class ConfigBaseMap
+    Public Class ConfigBaseMap
         Inherits ClassMapping(Of ConfigBase)
 
         Public Sub New()

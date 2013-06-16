@@ -4,22 +4,14 @@ Namespace Entities
     Friend Class BranchDetail
         Public Overridable Property Id() As Guid
         Public Overridable Property Branch() As Branch
-
         <Required()>
         Public Overridable Property RowStatus() As Byte
-
         <Required()>
         Public Overridable Property RowVersion() As Date
-
-        <Required()>
-        Public Overridable Property BranchId() As Integer
-
         <StringLength(64)>
         Public Overridable Property Address() As String
-
         <StringLength(5)>
         Public Overridable Property ZipCode() As String
-
         <StringLength(64)>
         Public Overridable Property City() As String
 

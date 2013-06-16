@@ -19,7 +19,11 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>K.Common.R2.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,7 +32,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>K.Common.R2.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -37,7 +43,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>Off</OptionStrict>
+    <OptionStrict>On</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
@@ -49,8 +55,12 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\..\..\SharedAssembly\NHibernate\Required_Bins\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="NHibernate">
       <HintPath>..\..\..\..\SharedAssembly\NHibernate\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\..\..\..\SharedAssembly\ValueInjecter\Omu.ValueInjecter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -72,6 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BaseRepository.vb" />
+    <Compile Include="Data\EnumParamterDataTypes.vb" />
+    <Compile Include="Data\IDataManager.vb" />
+    <Compile Include="Data\IListParameter.vb" />
+    <Compile Include="Data\SqlOperator.vb" />
     <Compile Include="Identity\Entities\ConfigBase.vb" />
     <Compile Include="Identity\Mappings\ConfigBaseMap.vb" />
     <Compile Include="Identity\Mappings\UserDetailsMap.vb" />
@@ -80,6 +94,20 @@
     <Compile Include="Identity\Entities\UserDetails.vb" />
     <Compile Include="Identity\Entities\UserProfile.vb" />
     <Compile Include="Identity\Entities\UserSecurity.vb" />
+    <Compile Include="Identity\Repositories\ConfigBaseRepository.vb" />
+    <Compile Include="Identity\Repositories\UserProfileRepository.vb" />
+    <Compile Include="AutoMapper\Creator.vb" />
+    <Compile Include="AutoMapper\EnumerableTypeMapper.vb" />
+    <Compile Include="AutoMapper\EnumToInt.vb" />
+    <Compile Include="AutoMapper\IntToEnum.vb" />
+    <Compile Include="AutoMapper\ITypeMapper.vb" />
+    <Compile Include="AutoMapper\Mapper.vb" />
+    <Compile Include="AutoMapper\MapperFactory.vb" />
+    <Compile Include="AutoMapper\MapperInjection.vb" />
+    <Compile Include="AutoMapper\NormalToNullables.vb" />
+    <Compile Include="AutoMapper\NullablesToNormal.vb" />
+    <Compile Include="AutoMapper\TypeExtensions.vb" />
+    <Compile Include="AutoMapper\TypeMapper.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -95,6 +123,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UnitTest\ConfigBaseTest.vb" />
+    <Compile Include="UnitTest\UserProfileTest.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -105,6 +135,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -118,7 +149,6 @@
   <ItemGroup>
     <Folder Include="Identity\Interfaces\" />
     <Folder Include="Identity\Models\" />
-    <Folder Include="Identity\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

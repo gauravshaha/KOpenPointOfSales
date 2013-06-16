@@ -19,8 +19,6 @@ Namespace Mappings
             Map(Function(x) x.CreatedDate).Column("CreatedDate").[Not].Nullable()
             Map(Function(x) x.ModifiedBy).Column("ModifiedBy").Length(24)
             Map(Function(x) x.ModifiedDate).Column("ModifiedDate")
-
         End Sub
-
     End Class
 End Namespace

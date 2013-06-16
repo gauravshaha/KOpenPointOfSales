@@ -2,7 +2,7 @@
 
 Namespace Identity.Entities
 
-    Friend Class ConfigBase
+    Public Class ConfigBase
         Public Overridable Property Seq() As Guid
         <Required(), _
             StringLength(3)> _
