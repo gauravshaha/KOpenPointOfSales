@@ -4,30 +4,33 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3253BD2B-7344-425B-8C9E-1BF2F7E92281}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>K.OpenPos.SalesOrders</RootNamespace>
-    <AssemblyName>K.OpenPos.SalesOrders</AssemblyName>
+    <ProjectGuid>{08262B28-46D3-4C02-9C15-AA32B8761066}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WinFormTest.My.MyApplication</StartupObject>
+    <RootNamespace>WinFormTest</RootNamespace>
+    <AssemblyName>WinFormTest</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Windows</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>K.OpenPos.SalesOrders.xml</DocumentationFile>
+    <DocumentationFile>WinFormTest.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>K.OpenPos.SalesOrders.xml</DocumentationFile>
+    <DocumentationFile>WinFormTest.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -43,12 +46,11 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\..\SharedAssembly\NHibernate\FluentNHibernate\FluentNHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,31 +62,20 @@
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\InvoiceCollecting.vb" />
-    <Compile Include="Entities\InvoiceLogs.vb" />
-    <Compile Include="Entities\Invoices.vb" />
-    <Compile Include="Entities\OrderDetail.vb" />
-    <Compile Include="Entities\OrderLogs.vb" />
-    <Compile Include="Entities\Orders.vb" />
-    <Compile Include="Entities\ShippingOrderLog.vb" />
-    <Compile Include="Entities\ShippingOrders.vb" />
-    <Compile Include="Entities\ShippingServiceDetail.vb" />
-    <Compile Include="Entities\ShippingServices.vb" />
-    <Compile Include="Mappings\InvoiceCollectingMap.vb" />
-    <Compile Include="Mappings\InvoiceLogsMap.vb" />
-    <Compile Include="Mappings\InvoicesMap.vb" />
-    <Compile Include="Mappings\OrderDetailMap.vb" />
-    <Compile Include="Mappings\OrderLogsMap.vb" />
-    <Compile Include="Mappings\OrdersMap.vb" />
-    <Compile Include="Mappings\ShippingOrderLogMap.vb" />
-    <Compile Include="Mappings\ShippingOrdersMap.vb" />
-    <Compile Include="Mappings\ShippingServiceDetailMap.vb" />
-    <Compile Include="Mappings\ShippingServicesMap.vb" />
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -102,6 +93,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -119,11 +113,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,7 +4,7 @@ Imports NHibernate.Mapping.ByCode
 
 Namespace Identity.Mappings
 
-    Friend Class UserDetailsMap
+    Class UserDetailsMap
         Inherits ClassMapping(Of UserDetails)
 
         Public Sub New()
