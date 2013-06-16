@@ -19,6 +19,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "K.Common.R2", "K.Common\K.C
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "KOpenPos", "KOpenPos\KOpenPos.vbproj", "{040E432D-E8E2-4A03-A863-E0022B35AAF4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Unit Test", "05. Unit Test", "{13DFD490-1C3D-4AE2-B1BC-540CD30B07A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

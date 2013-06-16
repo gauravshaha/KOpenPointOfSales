@@ -43,7 +43,11 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\..\..\SharedAssembly\NHibernate\FluentNHibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -61,6 +65,19 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ItemCategory.vb" />
+    <Compile Include="Entities\ProductDetail.vb" />
+    <Compile Include="Entities\ProductPicture.vb" />
+    <Compile Include="Entities\ProductPricing.vb" />
+    <Compile Include="Entities\Products.vb" />
+    <Compile Include="Entities\ProductStock.vb" />
+    <Compile Include="Entities\ProductStockJournal.vb" />
+    <Compile Include="Mappings\ProductDetailMap.vb" />
+    <Compile Include="Mappings\ProductPictureMap.vb" />
+    <Compile Include="Mappings\ProductPricingMap.vb" />
+    <Compile Include="Mappings\ProductsMap.vb" />
+    <Compile Include="Mappings\ProductStockJournalMap.vb" />
+    <Compile Include="Mappings\ProductStockMap.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,7 +114,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mappings\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
