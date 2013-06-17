@@ -2,8 +2,7 @@
 Imports K.Common.R2.Identity.Entities
 
 Namespace Identity.Mappings
-
-    Public Class UserSecurityMap
+    Friend Class UserSecurityMap
         Inherits ClassMap(Of UserSecurity)
 
         Public Sub New()

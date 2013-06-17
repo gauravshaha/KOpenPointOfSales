@@ -86,6 +86,9 @@
     <Compile Include="Data\IDataManager.vb" />
     <Compile Include="Data\IListParameter.vb" />
     <Compile Include="Data\SqlOperator.vb" />
+    <Compile Include="Fault\KFatalException.vb" />
+    <Compile Include="Fault\FaultValue.vb" />
+    <Compile Include="Fault\KWarnException.vb" />
     <Compile Include="Identity\Entities\ConfigBase.vb" />
     <Compile Include="Identity\Mappings\ConfigBaseMap.vb" />
     <Compile Include="Identity\Mappings\UserDetailsMap.vb" />

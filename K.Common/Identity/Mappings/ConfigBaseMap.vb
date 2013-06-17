@@ -3,14 +3,14 @@ Imports FluentNHibernate.Mapping
 
 Namespace Identity.Mappings
 
-    Public Class ConfigBaseMap
+    Class ConfigBaseMap
         Inherits ClassMap(Of ConfigBase)
 
-        Public Sub New()
+        Sub New()
             MyBase.New()
             Table("ConfigBase")
             LazyLoad()
-            Id(Function(x) x.Seq).GeneratedBy.Assigned().Column("Seq")
+            Id(Function(x) x.Id).GeneratedBy.Assigned().Column("Id")
             Map(Function(x) x.BranchCode).Column("BranchCode").[Not].Nullable().Length(3)
             Map(Function(x) x.ConfigName).Column("ConfigName").[Not].Nullable().Length(24)
             Map(Function(x) x.ConfigValue).Column("ConfigValue").[Not].Nullable().Length(64)

@@ -6,11 +6,11 @@ Namespace UnitTest
     <TestClass()>
     Public Class ConfigBaseTest
         <TestMethod()>
-        Public Sub TestGetAll()
+        Public Sub SeharusnyaMendapatRecordLebihDariSatu()
             Using _repo = New ConfigBaseRepository()
                 _repo.Initialize()
                 Dim _result = _repo.ExecuteAll(Of ConfigBase)()
-                Assert.AreEqual(58, _result.Count())
+                Assert.AreEqual(True, _result.Any())
             End Using
         End Sub
     End Class

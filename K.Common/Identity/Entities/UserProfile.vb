@@ -2,11 +2,13 @@
 
 Namespace Identity.Entities
 
-    Public Class UserProfile
+    Class UserProfile
         Public Sub New()
             MyBase.New()
-            UserDetails = New List(Of UserDetails)()
-            UserSecurity = New List(Of UserSecurity)()
+            'UserDetails = New List(Of UserDetails)()
+            'UserSecurity = New List(Of UserSecurity)()
+            UserDetail = New UserDetails()
+            UserSecurity = New UserSecurity()
         End Sub
         Public Overridable Property Id() As Guid
         <Required()> _
@@ -39,7 +41,9 @@ Namespace Identity.Entities
         <StringLength(24)> _
         Public Overridable Property ModifiedBy() As String
         Public Overridable Property ModifiedDate() As Date?
-        Public Overridable Property UserDetails() As IList(Of UserDetails)
-        Public Overridable Property UserSecurity() As IList(Of UserSecurity)
+        'Public Overridable Property UserDetails() As IList(Of UserDetails)
+        'Public Overridable Property UserSecurity() As IList(Of UserSecurity)
+        Public Overridable Property UserDetail() As UserDetails
+        Public Overridable Property UserSecurity() As UserSecurity
     End Class
 End Namespace

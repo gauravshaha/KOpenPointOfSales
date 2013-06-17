@@ -3,8 +3,7 @@ Imports K.Common.R2.Identity.Entities
 Imports FluentNHibernate.Mapping
 
 Namespace Identity.Mappings
-
-   Public Class UserDetailsMap
+    Friend Class UserDetailsMap
         Inherits ClassMap(Of UserDetails)
         Public Sub New()
             MyBase.New()

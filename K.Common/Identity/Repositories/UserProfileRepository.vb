@@ -10,17 +10,17 @@ Namespace Identity.Repositories
         Friend Sub Dispose() Implements IDisposable.Dispose
         End Sub
 
-        Friend Function Save(Of T)(ByVal businessModel As T) As Integer Implements IDataManager.Save
+        Friend Sub Save(Of T)(ByVal businessModel As T) Implements IDataManager.Save
             Throw New NotImplementedException()
-        End Function
+        End Sub
 
-        Friend Function Update(Of T)(ByVal businessModel As T) As Integer Implements IDataManager.Update
+        Friend Sub Update(Of T)(ByVal businessModel As T) Implements IDataManager.Update
             Throw New NotImplementedException()
-        End Function
+        End Sub
 
-        Friend Function Delete(ByVal id As Integer) As Integer Implements IDataManager.Delete
+        Friend Sub Delete(ByVal id As Guid) Implements IDataManager.Delete
             Throw New NotImplementedException()
-        End Function
+        End Sub
 
         Friend Function ExecuteAll(Of T)() As IEnumerable(Of T) Implements IDataManager.ExecuteAll
             Using _transaction = Session.BeginTransaction()

@@ -4,11 +4,11 @@ Imports K.Common.R2.Identity.Repositories
 
 Namespace UnitTest
     <TestClass()> Public Class UserProfileTest
-        <TestMethod()> Public Sub ExecuteAllTest()
+        <TestMethod()> Public Sub SeharusnyaMendapatRecordLebihDariSatu()
             Using _repo = New UserProfileRepository()
                 _repo.Initialize()
                 Dim _result = _repo.ExecuteAll(Of UserProfile)()
-                Assert.AreEqual(62, _result.Count())
+                Assert.AreEqual(True, _result.Any())
             End Using
         End Sub
     End Class

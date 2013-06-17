@@ -3,8 +3,7 @@ Imports FluentNHibernate.Mapping
 Imports K.Common.R2.Identity.Entities
 
 Namespace Identity.Mappings
-
-    Public Class UserProfileMap
+    Friend Class UserProfileMap
         Inherits ClassMap(Of UserProfile)
 
         Public Sub New()
@@ -24,8 +23,10 @@ Namespace Identity.Mappings
             Map(Function(x) x.CreatedDate).Column("CreatedDate").[Not].Nullable()
             Map(Function(x) x.ModifiedBy).Column("ModifiedBy").Length(24)
             Map(Function(x) x.ModifiedDate).Column("ModifiedDate")
-            HasMany(Function(x) x.UserDetails).KeyColumn("Id")
-            HasMany(Function(x) x.UserSecurity).KeyColumn("Id")
+            'HasMany(Function(x) x.UserDetails).KeyColumn("Id")
+            'HasMany(Function(x) x.UserSecurity).KeyColumn("Id")
+            HasOne(Function(x) x.UserDetail).ForeignKey("Id")
+            HasOne(Function(x) x.UserSecurity).ForeignKey("Id")
         End Sub
 
     End Class

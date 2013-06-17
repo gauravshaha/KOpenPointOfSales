@@ -1,9 +1,9 @@
 ﻿Namespace Data
     Public Interface IDataManager
         Inherits IDisposable
-        Function Save(Of T)(businessModel As T) As Integer
-        Function Update(Of T)(businessModel As T) As Integer
-        Function Delete(id As Integer) As Integer
+        Sub Save(Of T)(businessModel As T)
+        Sub Update(Of T)(businessModel As T)
+        Sub Delete(id As Guid)
         Function ExecuteAll(Of T)() As IEnumerable(Of T)
         Function ExecuteByWhereTerm(Of T)(ParamArray parameter As IListParameter()) As IEnumerable(Of T)
         Function ExecuteSingleRecord(Of T)(ParamArray parameter As IListParameter()) As T

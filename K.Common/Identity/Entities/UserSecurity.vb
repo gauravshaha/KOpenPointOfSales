@@ -2,13 +2,13 @@
 
 Namespace Identity.Entities
 
-    Public Class UserSecurity
+    Class UserSecurity
         Public Overridable Property Id() As Guid
         Public Overridable Property UserProfile() As UserProfile
         <Required()> _
         Public Overridable Property RowStatus() As Byte
         <Required()> _
-        Public Overridable Property RowVersion() As Date
+        Public Overridable Property RowVersion() As Byte()
         <StringLength(24)> _
         Public Overridable Property UserPassword() As String
         <Required()> _

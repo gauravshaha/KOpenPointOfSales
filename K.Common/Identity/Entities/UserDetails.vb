@@ -2,13 +2,13 @@
 
 Namespace Identity.Entities
 
-    Public Class UserDetails
+    Class UserDetails
         Public Overridable Property Id() As Guid
         Public Overridable Property UserProfile() As UserProfile
         <Required()> _
         Public Overridable Property RowStatus() As Byte
         <Required()> _
-        Public Overridable Property RowVersion() As Date
+        Public Overridable Property RowVersion() As Byte()
         Public Overridable Property RegisterDate() As Date?
         Public Overridable Property ActivationDate() As Date?
         <StringLength(64)> _

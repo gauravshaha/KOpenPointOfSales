@@ -78,6 +78,7 @@ Namespace Data
             End Using
         End Function
 
+        Protected Property TableName() As String
         
     End Class
 End Namespace

@@ -2,8 +2,8 @@
 
 Namespace Identity.Entities
 
-    Public Class ConfigBase
-        Public Overridable Property Seq() As Guid
+    Class ConfigBase
+        Public Overridable Property Id() As Guid
         <Required(), _
             StringLength(3)> _
         Public Overridable Property BranchCode() As String
