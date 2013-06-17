@@ -1,11 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [KOpenPos]    Script Date: 6/17/2013 11:04:56 PM ******/
-DROP DATABASE [KOpenPos]
-GO
-
-/****** Object:  Database [KOpenPos]    Script Date: 6/17/2013 11:04:56 PM ******/
+/****** Object:  Database [KOpenPos]    Script Date: 6/18/2013 3:23:17 AM ******/
 CREATE DATABASE [KOpenPos] ON  PRIMARY 
 ( NAME = N'OpenPos', FILENAME = N'D:\Database\SQL 2005\OpenPos.mdf' , SIZE = 2048KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
@@ -106,7 +102,7 @@ GO
 USE [KOpenPos]
 GO
 
-/****** Object:  Table [dbo].[Branch]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[Branch]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -134,7 +130,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[BranchDetail]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[BranchDetail]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -168,7 +164,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ConfigBase]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ConfigBase]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -179,7 +175,7 @@ SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [dbo].[ConfigBase](
-	[Seq] [uniqueidentifier] NOT NULL,
+	[Id] [uniqueidentifier] NOT NULL,
 	[BranchCode] [char](3) NOT NULL,
 	[ConfigName] [varchar](24) NOT NULL,
 	[ConfigValue] [varchar](64) NOT NULL
@@ -190,7 +186,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[InvoiceCollecting]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[InvoiceCollecting]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -230,7 +226,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[InvoiceLogs]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[InvoiceLogs]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -253,7 +249,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[Invoices]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[Invoices]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -288,7 +284,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ItemCategory]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ItemCategory]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -315,7 +311,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[OrderDetail]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[OrderDetail]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -353,7 +349,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[OrderLogs]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[OrderLogs]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -376,7 +372,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[Orders]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[Orders]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -417,7 +413,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ProductDetail]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ProductDetail]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -454,7 +450,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ProductPicture]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ProductPicture]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -483,7 +479,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ProductPricing]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ProductPricing]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -515,7 +511,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[Products]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[Products]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -549,7 +545,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ProductStock]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ProductStock]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -576,7 +572,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ProductStockJournal]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ProductStockJournal]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -609,7 +605,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ShippingOrderLog]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ShippingOrderLog]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -632,7 +628,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ShippingOrders]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ShippingOrders]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -668,7 +664,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ShippingServiceDetail]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ShippingServiceDetail]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -701,7 +697,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[ShippingServices]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[ShippingServices]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -731,7 +727,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[UserDetails]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[UserDetails]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -761,7 +757,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[UserProfile]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[UserProfile]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -792,7 +788,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-/****** Object:  Table [dbo].[UserSecurity]    Script Date: 6/17/2013 11:05:08 PM ******/
+/****** Object:  Table [dbo].[UserSecurity]    Script Date: 6/18/2013 3:23:33 AM ******/
 SET ANSI_NULLS ON
 GO
 
