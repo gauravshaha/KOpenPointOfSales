@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\..\SharedAssembly\NHibernate\FluentNHibernate\FluentNHibernate.dll</HintPath>
+      <HintPath>..\Assembly References\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

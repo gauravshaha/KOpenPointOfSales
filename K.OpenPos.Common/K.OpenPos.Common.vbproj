@@ -48,17 +48,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentNHibernate">
-      <HintPath>..\..\..\..\SharedAssembly\NHibernate\FluentNHibernate\FluentNHibernate.dll</HintPath>
+      <HintPath>..\Assembly References\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\..\SharedAssembly\NHibernate\Required_Bins\Iesi.Collections.dll</HintPath>
+      <HintPath>..\Assembly References\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\..\SharedAssembly\NHibernate\Required_Bins\NHibernate.dll</HintPath>
+      <HintPath>..\Assembly References\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Omu.ValueInjecter">
-      <HintPath>..\..\..\..\SharedAssembly\ValueInjecter\Omu.ValueInjecter.dll</HintPath>
+      <HintPath>..\Assembly References\Omu.ValueInjecter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

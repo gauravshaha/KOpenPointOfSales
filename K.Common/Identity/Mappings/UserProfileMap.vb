@@ -62,5 +62,8 @@ Namespace Identity.Mappings
                        colmap.Inverse(True)
                    End Sub
         End Function
+
     End Class
+
+
 End Namespace

@@ -28,7 +28,7 @@ Namespace Identity.Mappings
             [Property](Function(x) x.CreatedDate, Sub(map) map.NotNullable(True))
             [Property](Function(x) x.ModifiedBy, Sub(map) map.Length(24))
             [Property](Function(x) x.ModifiedDate)
-            Bag(Of UserProfile)(Function(x) x.UserProfile, Sub(colmap) colmap.Key(Function(x) x.Column("Id")), Sub(map) map.OneToMany())
+            Bag(Of UserProfile)(Function(x) x.UserProfile, Sub(colmap) colmap.Key(Function(x) CType(x, IKeyMapper).Column("Id")), Sub(map) map.OneToMany())
         End Sub
 
     End Class
