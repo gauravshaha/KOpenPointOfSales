@@ -1,40 +1,28 @@
-﻿Imports K.Common.R2.Identity.Entities
-Imports NHibernate.Mapping.ByCode.Conformist
-Imports NHibernate.Mapping.ByCode
+﻿
+Imports K.Common.R2.Identity.Entities
+Imports FluentNHibernate.Mapping
 
 Namespace Identity.Mappings
 
-    Public Class UserDetailsMap
-        Inherits ClassMapping(Of UserDetails)
-
+   Public Class UserDetailsMap
+        Inherits ClassMap(Of UserDetails)
         Public Sub New()
             MyBase.New()
-            Schema("dbo")
-            Lazy(True)
-            Id(Function(x) x.Id, Sub(map) map.Generator(Generators.Assigned))
-            [Property](Function(x) x.RowStatus, Sub(map)
-                                                    map.NotNullable(True)
-                                                    map.Precision(3)
-                                                End Sub)
-            [Property](Function(x) x.RowVersion, Sub(map) map.NotNullable(True))
-            [Property](Function(x) x.RegisterDate)
-            [Property](Function(x) x.ActivationDate)
-            [Property](Function(x) x.ActivationKey, Sub(map) map.Length(64))
-            [Property](Function(x) x.SecurityQuestion, Sub(map) map.Length(256))
-            [Property](Function(x) x.SecurityAnswer, Sub(map) map.Length(128))
-            [Property](Function(x) x.CreatedBy, Sub(map)
-                                                    map.NotNullable(True)
-                                                    map.Length(24)
-                                                End Sub)
-            [Property](Function(x) x.CreatedDate, Sub(map) map.NotNullable(True))
-            [Property](Function(x) x.ModifiedBy, Sub(map) map.Length(24))
-            [Property](Function(x) x.ModifiedDate)
-            ManyToOne(Function(x) x.UserProfile, Sub(map)
-                                                     map.Column("Id")
-                                                     map.PropertyRef("Id")
-                                                     map.Cascade(Cascade.None)
-                                                 End Sub)
-
+            Table("UserDetails")
+            LazyLoad()
+            Id(Function(x) x.Id).GeneratedBy.Assigned().Column("Id")
+            References(Function(x) x.UserProfile).Column("Id")
+            Map(Function(x) x.RowStatus).Column("RowStatus").[Not].Nullable().Precision(3)
+            Map(Function(x) x.RowVersion).Column("RowVersion").[Not].Nullable()
+            Map(Function(x) x.RegisterDate).Column("RegisterDate")
+            Map(Function(x) x.ActivationDate).Column("ActivationDate")
+            Map(Function(x) x.ActivationKey).Column("ActivationKey").Length(64)
+            Map(Function(x) x.SecurityQuestion).Column("SecurityQuestion").Length(256)
+            Map(Function(x) x.SecurityAnswer).Column("SecurityAnswer").Length(128)
+            Map(Function(x) x.CreatedBy).Column("CreatedBy").[Not].Nullable().Length(24)
+            Map(Function(x) x.CreatedDate).Column("CreatedDate").[Not].Nullable()
+            Map(Function(x) x.ModifiedBy).Column("ModifiedBy").Length(24)
+            Map(Function(x) x.ModifiedDate).Column("ModifiedDate")
         End Sub
     End Class
 End Namespace

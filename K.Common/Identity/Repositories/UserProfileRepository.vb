@@ -8,7 +8,6 @@ Namespace Identity.Repositories
         Implements IDataManager
 
         Friend Sub Dispose() Implements IDisposable.Dispose
-            Throw New NotImplementedException()
         End Sub
 
         Friend Function Save(Of T)(ByVal businessModel As T) As Integer Implements IDataManager.Save
@@ -26,7 +25,7 @@ Namespace Identity.Repositories
         Friend Function ExecuteAll(Of T)() As IEnumerable(Of T) Implements IDataManager.ExecuteAll
             Using _transaction = Session.BeginTransaction()
                 Try
-                    Dim _config_bases = Session.QueryOver(Of UserDetails)().List()
+                    Dim _config_bases = Session.QueryOver(Of UserProfile)().List()
                     _transaction.Commit()
                     Return TryCast(_config_bases, IEnumerable(Of T))
                 Catch _ex As Exception

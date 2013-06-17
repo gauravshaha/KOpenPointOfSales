@@ -8,7 +8,7 @@ Namespace UnitTest
         <TestMethod()>
         Public Sub TestGetAll()
             Using _repo = New ConfigBaseRepository()
-                _repo.Initialize("K.Common.R2")
+                _repo.Initialize()
                 Dim _result = _repo.ExecuteAll(Of ConfigBase)()
                 Assert.AreEqual(58, _result.Count())
             End Using

@@ -1,34 +1,26 @@
-﻿Imports NHibernate.Mapping.ByCode
-Imports NHibernate.Mapping.ByCode.Conformist
+﻿Imports FluentNHibernate.Mapping
 Imports K.Common.R2.Identity.Entities
 
 Namespace Identity.Mappings
 
     Public Class UserSecurityMap
-        Inherits ClassMapping(Of UserSecurity)
+        Inherits ClassMap(Of UserSecurity)
 
         Public Sub New()
             MyBase.New()
-            Table("UserProfile")
-            Schema("dbo")
-            Lazy(True)
-            Id(Function(x) x.Id, Sub(map) map.Generator(Generators.Assigned))
-            [Property](Function(x) x.RowStatus, Sub(map)
-                                                    map.NotNullable(True)
-                                                    map.Precision(3)
-                                                End Sub)
-            [Property](Function(x) x.RowVersion, Sub(map) map.NotNullable(True))
-            [Property](Function(x) x.UserPassword, Sub(map) map.Length(24))
-            [Property](Function(x) x.MustChangePassword, Sub(map) map.NotNullable(True))
-            [Property](Function(x) x.IsWindowIdentity, Sub(map) map.NotNullable(True))
-            [Property](Function(x) x.CreatedBy, Sub(map)
-                                                    map.NotNullable(True)
-                                                    map.Length(24)
-                                                End Sub)
-            [Property](Function(x) x.CreatedDate, Sub(map) map.NotNullable(True))
-            [Property](Function(x) x.ModifiedBy, Sub(map) map.Length(24))
-            [Property](Function(x) x.ModifiedDate)
-            Bag(Of UserProfile)(Function(x) x.UserProfile, Sub(colmap) colmap.Key(Function(x) CType(x, IKeyMapper).Column("Id")), Sub(map) map.OneToMany())
+            Table("UserSecurity")
+            LazyLoad()
+            Id(Function(x) x.Id).GeneratedBy.Assigned().Column("Id")
+            References(Function(x) x.UserProfile).Column("Id")
+            Map(Function(x) x.RowStatus).Column("RowStatus").[Not].Nullable().Precision(3)
+            Map(Function(x) x.RowVersion).Column("RowVersion").[Not].Nullable()
+            Map(Function(x) x.UserPassword).Column("UserPassword").Length(24)
+            Map(Function(x) x.MustChangePassword).Column("MustChangePassword").[Not].Nullable()
+            Map(Function(x) x.IsWindowIdentity).Column("IsWindowIdentity").[Not].Nullable()
+            Map(Function(x) x.CreatedBy).Column("CreatedBy").[Not].Nullable().Length(24)
+            Map(Function(x) x.CreatedDate).Column("CreatedDate").[Not].Nullable()
+            Map(Function(x) x.ModifiedBy).Column("ModifiedBy").Length(24)
+            Map(Function(x) x.ModifiedDate).Column("ModifiedDate")
         End Sub
 
     End Class

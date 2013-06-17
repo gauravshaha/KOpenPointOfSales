@@ -1,4 +1,6 @@
 ﻿
+Imports FluentNHibernate.Automapping
+Imports FluentNHibernate.Cfg
 Imports K.Common.R2.Identity.Entities
 Imports NHibernate.Tool.hbm2ddl
 Imports NHibernate.Mapping.ByCode
@@ -25,6 +27,15 @@ Namespace Data
             Return _configuration
         End Function
 
+        Public Shared Function ConfigureFluentNHibernate() As FluentConfiguration
+            Dim _fluent_configurate = Fluently.Configure()
+            With _fluent_configurate
+                .Mappings(Function(mapping) mapping.FluentMappings.AddFromAssemblyOf(Of ConfigBase)())
+            End With
+            '_fluent_configurate.Mappings(Function(c) c.AutoMappings.Add(AutoMap.AssemblyOf(Of ConfigBase)))
+            Return _fluent_configurate
+        End Function
+
         Protected Shared Function GetMapping() As HbmMapping
             Dim _mapper As New ModelMapper()
             Dim _p = Assembly.GetAssembly(GetType(ConfigBase)).GetExportedTypes()
@@ -32,15 +43,14 @@ Namespace Data
             Return _mapper.CompileMappingForAllExplicitlyAddedEntities()
         End Function
 
-        'Protected Shared Function GetMapping() As HbmMapping
-        '    Dim _mapper As New ModelMapper()
-        '    _mapper.AddMappings(Assembly.GetAssembly(GetType(ConfigBase)).GetExportedTypes())
-        '    Return _mapper.CompileMappingForAllExplicitlyAddedEntities()
-        'End Function
-
         Public Sub Initialize(assembly As String)
             _configuration = ConfigureNHibernate(assembly)
             SessionFactory = _configuration.BuildSessionFactory()
+        End Sub
+
+        Public Sub Initialize()
+            Dim _session_factory = ConfigureFluentNHibernate()
+            SessionFactory = _session_factory.BuildSessionFactory()
         End Sub
 
         Public Shared ReadOnly Property Session() As ISession
@@ -48,8 +58,7 @@ Namespace Data
                 Return TryCast(IIf(_session Is Nothing, SessionFactory.OpenSession(), _session), ISession)
             End Get
         End Property
-
-
+        
         Public Shared ReadOnly Property StatelessSession() As IStatelessSession
             Get
                 Return TryCast(IIf(_statelessSession Is Nothing, SessionFactory.OpenStatelessSession(), _statelessSession), IStatelessSession)
@@ -60,7 +69,6 @@ Namespace Data
             Using _transaction = Session.BeginTransaction()
                 Try
                     Dim _result = Session.CreateCriteria(GetType(T)).List(Of T)()
-                    'var result = Session.QueryOver<T>();
                     _transaction.Commit()
                     Return _result
                 Catch _ex As Exception

@@ -18,7 +18,7 @@ Namespace Identity.Entities
         <StringLength(128)> _
         Public Overridable Property SecurityAnswer() As String
         <Required(), _
-            StringLength(24)> _
+         StringLength(24)> _
         Public Overridable Property CreatedBy() As String
         <Required()> _
         Public Overridable Property CreatedDate() As Date
